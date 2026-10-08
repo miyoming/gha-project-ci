@@ -1,0 +1,25 @@
+name: pixelpost-ci
+on:
+  [push, pull_request]
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: compileall
+        run: python -m compileall .
+      - name: Run tests
+        run: python3 -m pytest --junitxml=report.xml
+      - name: upload artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: report.xml
+          retention-days: 3
+
