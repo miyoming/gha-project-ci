@@ -1,6 +1,6 @@
 name: pixelpost-ci
 on:
-  [push, pull_request]
+  workflow_push:
 jobs:
   ci:
     runs-on: ubuntu-latest
