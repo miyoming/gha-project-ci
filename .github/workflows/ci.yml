@@ -28,5 +28,5 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           path: report.xml
-          name: test-report
+          name: test-results
           retention-days: 3
