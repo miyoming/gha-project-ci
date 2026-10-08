@@ -20,6 +20,7 @@ jobs:
       - name: upload artifact
         uses: actions/upload-artifact@v7
         with:
-          name: report.xml
+          path: report.xml
+          name: test-report
           retention-days: 3
 
