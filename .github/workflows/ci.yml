@@ -14,9 +14,13 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
       - name: compileall
-        run: python -m compileall .
-      - name: Run tests
-        run: python3 -m pytest --junitxml=report.xml
+        run: python3 -m compileall . 
+
+
+
+      - name: Run tests
+        run: python3 -m pytest --junitxml=report.xml
+        
       - name: upload artifact
         uses: actions/upload-artifact@v7
         with:
